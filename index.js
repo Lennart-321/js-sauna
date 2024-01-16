@@ -23,7 +23,12 @@ do {
         "C - That is too hot! Reenter temprature..."
     );
   } else {
-    window.alert(tempratureC.toString() + "\u00B0" + "C - Good!");
+    window.alert(
+      tempratureC.toString() +
+        "\u00B0" +
+        "C - " +
+        (isOptimal(tempratureC) ? "Really good!" : "Good!")
+    );
     isAcceptable = true;
   }
 } while (!isAcceptable);
@@ -35,5 +40,9 @@ function isToCold(celcius) {
   return celcius < 73;
 }
 function isToHot(celcius) {
-  return celcius > 75;
+  return celcius > 77;
+}
+function isOptimal(celcius) {
+  console.log(Math.abs(celcius - 75));
+  return Math.abs(celcius - 75) < 0.3;
 }
